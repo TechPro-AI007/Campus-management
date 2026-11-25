@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d16"><title>Campus.io — Campus Events</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar"><div class="nav-wrap">
+  <a class="brand" href="#" aria-label="Campus.io home"><span class="brand-mark">✦</span><span>Campus<span class="brand-dot">.io</span></span><span class="version">ACADEMY V2.4</span></a>
+  <nav class="nav-tabs" aria-label="Main navigation"><button class="nav-btn active" data-view="explorer">⌂ <span>Events Explorer</span></button><button class="nav-btn" data-view="registrations">▤ <span>My Registrations</span><b id="reg-count" class="count">0</b></button><button class="nav-btn" data-view="organizer">◒ <span>Organizer Panel</span></button></nav>
+  <div class="identity"><label for="user-id">Active User ID</label><input id="user-id" placeholder="Paste user UUID" autocomplete="off"></div>
+</div></header>
+<main>
+  <section id="view-explorer" class="view active-view">
+    <section class="hero"><div class="hero-glow"></div><div class="hero-content">
+      <div class="live-pill"><i></i> CAMPUS CALENDAR LIVE</div>
+      <h1>Discover &amp; Register for Campus <span>Workshops and Tech Events</span></h1>
+      <p>Explore hands-on technical labs, guest keynotes from industry leaders, and hackathons. Reserve your seat instantly using your student credential.</p>
+      <div class="search-dock"><div class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="Search events by title..."><kbd>⌘ K</kbd></div><div class="filters"><button class="filter active" data-status="all">All</button><button class="filter" data-status="upcoming">Upcoming</button><button class="filter" data-status="closed">Closed</button></div><a class="browse" href="#events">Browse ↓</a></div>
+      <div class="metrics"><span><i class="green"></i><strong id="event-count">—</strong> Campus Events</span><span><i class="blue"></i><strong>Live</strong> from the campus API</span><span><i class="amber"></i><strong>Instant</strong> Registration</span></div>
+    </div></section>
+    <section class="section-head" id="events"><div><div class="eyebrow">WHAT'S HAPPENING</div><h2>Explore campus events</h2></div><span id="results-label">Loading events…</span></section>
+    <div id="events-grid" class="events-grid"><div class="state-card">Loading events from Campus.io…</div></div>
+  </section>
+  <section id="view-registrations" class="view">
+    <section class="page-heading"><div class="eyebrow">YOUR CAMPUS JOURNEY</div><h1>My Registrations</h1><p>Your confirmed seats, all in one place.</p></section>
+    <div id="registrations-list" class="registrations-grid"><div class="state-card">Enter an active User ID to load registrations.</div></div>
+  </section>
+  <section id="view-organizer" class="view">
+    <section class="page-heading"><div class="eyebrow">EVENT MANAGEMENT</div><h1>Organizer Panel</h1><p>View the attendee roster for events you organize.</p></section>
+    <section class="panel"><div class="panel-controls"><label for="organizer-id">Organizer ID</label><input id="organizer-id" placeholder="Paste organizer UUID" autocomplete="off"><label for="organizer-event">Event</label><select id="organizer-event"><option value="">Choose an event</option></select><button id="load-attendees" class="primary-btn">Load attendees</button></div><div id="organizer-message" class="inline-message"></div><div id="attendee-content"></div></section>
+  </section>
+</main>
+<footer><span class="brand small"><span class="brand-mark">✦</span> Campus<span class="brand-dot">.io</span></span><span>Campus events, brought together.</span></footer>
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-backdrop" data-close></div><section class="modal-card"><button class="modal-close" aria-label="Close" data-close>×</button><div class="eyebrow">EVENT DETAILS</div><div id="modal-content"><h2 id="modal-title"></h2><div id="modal-meta"></div></div><div id="modal-message" class="inline-message"></div><div class="modal-actions"><button id="modal-register" class="primary-btn">Register Now</button><button class="secondary-btn" data-close>Close</button></div></section></div>
+<div id="toast" class="toast" role="status"></div>
+<script src="app.js"></script>
+</body></html>

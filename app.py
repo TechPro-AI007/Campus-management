@@ -4,6 +4,7 @@ import os
 from uuid import UUID
 
 from dotenv import load_dotenv
+from flask_cors import CORS
 from flask import Flask, jsonify, request
 from postgrest import APIError
 from supabase import Client, create_client
@@ -11,6 +12,7 @@ from supabase import Client, create_client
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
 supabase_url = os.getenv("SUPABASE_URL")
 supabase_key = os.getenv("SUPABASE_PUBLISHABLE_KEY")
